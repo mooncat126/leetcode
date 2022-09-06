@@ -1,0 +1,2 @@
+# leetcode
+🍊 my leetcode practices
