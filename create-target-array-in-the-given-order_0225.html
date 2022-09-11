@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create-target-array-in-the-given-order</title>
+</head>
+<body>
+    
+</body>
+<script>
+const nums = [0,1,2,3,4],
+index = [0,1,2,2,1];
+
+console.log(createTargetArray(nums, index));
+
+/**
+ * @param {number[]} nums
+ * @param {number[]} index
+ * @return {number[]}
+ */
+ function createTargetArray(nums, index) {
+    let result = [];
+    // 在数组里插入使用slipce
+    index.forEach((index_insert, index_num) => {
+        result.splice(index_insert, 0, nums[index_num]);
+    })
+    return result
+};
+</script>
+</html>

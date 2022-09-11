@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse-prefix-of-word</title>
+</head>
+<body>
+    
+</body>
+<script>
+const word = "abcdefd";
+const ch = "d";
+
+console.log(reversePrefix(word, ch));
+/**
+ * @param {string} word
+ * @param {character} ch
+ * @return {string}
+ */
+function reversePrefix(word, ch) {
+    if(word.indexOf(ch) == -1) return word;
+    
+    const index = word.indexOf(ch) + 1;
+    const reverseStr = word.slice(0, index).split("").reverse().join("");
+    const lastStr = word.slice(index, word.length);
+    
+    return reverseStr + lastStr
+};
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>final-value-of-variable-after-performing-operations</title>
+</head>
+<body>
+    
+</body>
+<script>
+const operations = ["--X","X++","X++"];
+
+
+console.log("======result===========");
+console.log(finalValueAfterOperations(operations));
+console.log("=======================");
+
+function finalValueAfterOperations(operations) {
+    let count = 0;
+    operations.forEach((str) => {
+        let arr = str.split("");
+        count = arr.includes("-") ? --count : arr.includes("+") ? ++count : count
+    })
+    return count
+};
+</script>
+</html>

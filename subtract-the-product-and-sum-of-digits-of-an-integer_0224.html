@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subtract-the-product-and-sum-of-digits-of-an-integer</title>
+</head>
+<body>
+    
+</body>
+<script>
+const n = 234;
+subtractProductAndSum(n);
+/**
+ * @param {number} n
+ * @return {number}
+ */
+function subtractProductAndSum(n) {
+    const arr = String(n).split("");
+    const num1 = arr.reduce((pre, cur) => pre * cur);
+    const num2 = arr.reduce((pre, cur) => Number(pre) + Number(cur));
+    return num1 - num2;
+};
+</script>
+</html>

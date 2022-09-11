@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>decode-xored-array</title>
+</head>
+<body>
+    
+</body>
+<script>
+const encoded = [1,2,3];
+const first = 1;
+
+decode(encoded,first);
+
+/**
+ * @param {number[]} encoded
+ * @param {number} first
+ * @return {number[]}
+ */
+function decode(encoded, first) {
+    let result = [first];
+    encoded.forEach((num, index)=>{
+        result.push(result[index] ^ num)
+    })
+    return result
+};
+</script>
+</html>

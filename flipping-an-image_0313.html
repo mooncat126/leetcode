@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flipping-an-image</title>
+</head>
+<body>
+    
+</body>
+<script>
+const image = [[1,1,0],[1,0,1],[0,0,0]];
+/**
+ * @param {number[][]} image
+ * @return {number[][]}
+ */
+function flipAndInvertImage(image) {
+    let result = []
+    for(let i = 0; i < image.length; i++) {
+        let arrReversed = image[i].reverse();
+        let changedNum = image[i].map((num) => {
+            return num == 0 ? 1 : 0;
+        })   
+        result.push(changedNum);
+    }
+    return result
+};
+
+// Way2 one line
+/**
+ * @param {number[][]} image
+ * @return {number[][]}
+ */
+function flipAndInvertImage(image) {
+    return image.map(arr => arr.reverse().map( num => num == 0 ? 1 : 0))
+};
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>check-if-all-characters-have-equal-number-of-occurrences</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {string} s
+     * @return {boolean}
+     */
+    const areOccurrencesEqual = function (s) {
+      let map = new Map();
+      let compairArr = [];
+      for (let arg of s) {
+        map.set(arg, map.get(arg) ? map.get(arg) + 1 : 1);
+      }
+      for (let [ket, value] of map) {
+        compairArr.push(value);
+      }
+      return [...new Set(compairArr)].length == 1;
+    };
+  </script>
+</html>

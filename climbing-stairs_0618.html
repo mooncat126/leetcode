@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>climbing-stairs</title>
+  </head>
+  <body></body>
+  <script>
+    var climbStairs = function (n) {
+      const cache = {};
+
+      return calc(n);
+
+      function calc(step) {
+        if (cache[step]) {
+          return cache[step];
+        }
+
+        if (step === 1) {
+          return 1;
+        } else if (step === 2) {
+          return 2;
+        }
+        cache[step] = calc(step - 1) + calc(step - 2);
+
+        return cache[step];
+      }
+    };
+  </script>
+</html>

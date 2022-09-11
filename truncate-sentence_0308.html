@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>truncate-sentence</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "Hello how are you Contestant";
+const k = 4;
+
+console.log(truncateSentence(s, k));
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+function truncateSentence(s, k) {
+    return s.split(" ").splice(0, k).join(" ").trim();
+};
+</script>
+</html>

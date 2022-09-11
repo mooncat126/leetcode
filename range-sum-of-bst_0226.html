@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>range-sum-of-bst</title>
+</head>
+<body>
+    
+</body>
+<script>
+const root = [10,5,15,3,7,null,18];
+const low = 7;
+const high = 15;
+
+console.log(rangeSumBST(root, low, high));
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} low
+ * @param {number} high
+ * @return {number}
+ */
+function rangeSumBST(root, low, high) {
+    let result = 0;
+    if(!root) return 0;
+    
+    if(root.val >=low && root.val <= high) result += root.val;
+    
+    if(root.val >= low)  result += rangeSumBST(root.left, low, high);
+    if(root.val <= high) result += rangeSumBST(root.right, low, high);
+    
+    return result
+};
+</script>
+</html>

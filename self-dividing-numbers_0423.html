@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>self-dividing-numbers</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number} left
+     * @param {number} right
+     * @return {number[]}
+     */
+    const selfDividingNumbers = function (left, right) {
+      let result = [];
+      for (let i = left; i <= right; i++) {
+        let strNum = i + "";
+        if (strNum.split("").every((item) => strNum % parseInt(item) === 0))
+          result.push(i);
+      }
+      return result;
+    };
+  </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>determine-if-string-halves-are-alike</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "book";
+
+console.log(halvesAreAlike(s));
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+function halvesAreAlike(s) {
+    let countFront = 0;
+    let countLast = 0;
+    
+    const alikeArr =  ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    const half = Math.ceil(s.length/2);
+    const frontS = s.slice(0, half);
+    const LastS = s.slice(-half);
+    
+    for(let i = 0; i < frontS.length; i++) {
+        if (alikeArr.indexOf(frontS[i]) !== -1 ) countFront++
+        if (alikeArr.indexOf(LastS[i]) !== -1  ) countLast++
+    }
+    
+    return countFront == countLast
+};
+</script>
+</html>

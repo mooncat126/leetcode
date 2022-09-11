@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>best-time-to-buy-and-sell-stock</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number[]} prices
+     * @return {number}
+     */
+    var maxProfit = function (prices) {
+      let profit = 0;
+      let currentMin = prices[0];
+
+      prices.forEach((price) => {
+        currentMin = Math.min(price, currentMin);
+        profit = Math.max(profit, price - currentMin);
+      });
+
+      return profit;
+    };
+  </script>
+</html>

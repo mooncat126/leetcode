@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single number</title>
+</head>
+<body>
+    
+</body>
+<script>
+  const nums = [2,2,1];
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+let singleNumber = function(nums) {
+    let result = 0;
+    nums.forEach((num, index)=>{
+        let idx = nums.indexOf(num);
+        if (nums.indexOf(num, idx+1) === -1)  result = num
+    })
+    return result
+};
+
+```way 2
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function(nums) {
+    let ht = {}
+    nums.forEach((num)=>{
+        ht[num] = ht[num] + 1 || 1
+    })
+    
+    
+    for( let key in ht) {
+        if (ht[key] === 1) return key
+    }
+    
+};
+```
+console.log(singleNumber(nums));
+</script>
+</html>

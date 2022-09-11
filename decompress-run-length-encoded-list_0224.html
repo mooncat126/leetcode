@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>decompress-run-length-encoded-list</title>
+</head>
+<body>
+    
+</body>
+<script>
+const nums = [1,2,3,4];
+
+decompressRLElist(nums);
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+function decompressRLElist(nums) {
+    let result = [];
+    while(nums.length > 0) {
+        let copyNums = nums.slice(0,2);
+        nums = nums.slice(2, nums.length);
+        for(let i = 0; i < copyNums[0]; i++) {
+            result.push(copyNums[1]);
+        }
+    }
+    return result
+};
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find-target-indices-after-sorting-array</title>
+</head>
+<body>
+    
+</body>
+<script>
+const nums = [1,2,5,2,3];
+const target = 2
+
+console.log(targetIndices(nums, target));
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+function targetIndices(nums, target) {
+    let result = [];
+    const sortArr = nums.sort((a,b) => a - b);
+    sortArr.forEach((num, index) => {
+        if(num === target) result.push(index);
+    })
+    return result
+};
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count-items-matching-a-rule</title>
+</head>
+<body>
+    
+</body>
+<script>
+const items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]];
+const ruleKey = "color";
+const ruleValue = "silver";
+
+console.log(countMatches(items, ruleKey, ruleValue));
+
+/**
+ * @param {string[][]} items
+ * @param {string} ruleKey
+ * @param {string} ruleValue
+ * @return {number}
+ */
+function countMatches(items, ruleKey, ruleValue) {
+    let count = 0;
+    
+    let ruleIndex = ['type', 'color', 'name'].findIndex(r => r === ruleKey);
+    
+    items.forEach((item) => {
+        if (item[ruleIndex] === ruleValue) ++count;
+    })
+    
+    return count
+};
+
+
+// Way2: 
+// function countMatches(items, ruleKey, ruleValue) {
+//     let count = 0;
+//     if(ruleKey === 'type') {
+//         items.forEach((item) => {
+//             if (item[0] === ruleValue) ++count;
+//         })
+//     }
+    
+//     if (ruleKey === 'color') {
+//         items.forEach((item) =>{
+//             if (item[1] === ruleValue) ++count;
+//         })
+//     }
+    
+//     if (ruleKey === 'name') {
+//         items.forEach((item) =>{
+//             if (item[2] === ruleValue) ++count;
+//         })
+//     }
+    
+//     return count
+// };
+
+</script>
+</html>

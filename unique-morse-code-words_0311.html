@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unique-morse-code-words</title>
+</head>
+
+<body></body>
+<script>
+    const words = ["gin", "zen", "gig", "msg"];
+
+    console.log(uniqueMorseRepresentations(words));
+    /**
+     * @param {string[]} words
+     * @return {number}
+     */
+    // function uniqueMorseRepresentations(words) {
+    //   const index = "a".charCodeAt(0);
+    //   const letters = [
+    //     ".-",
+    //     "-...",
+    //     "-.-.",
+    //     "-..",
+    //     ".",
+    //     "..-.",
+    //     "--.",
+    //     "....",
+    //     "..",
+    //     ".---",
+    //     "-.-",
+    //     ".-..",
+    //     "--",
+    //     "-.",
+    //     "---",
+    //     ".--.",
+    //     "--.-",
+    //     ".-.",
+    //     "...",
+    //     "-",
+    //     "..-",
+    //     "...-",
+    //     ".--",
+    //     "-..-",
+    //     "-.--",
+    //     "--..",
+    //   ];
+
+    //   let result = [];
+
+    //   words.forEach((word) => {
+    //     let str = "";
+    //     let arrWord = word.split("");
+    //     for (let i = 0; i < word.length; i++) {
+    //       str += letters[arrWord[i].charCodeAt(0) - index];
+    //     }
+    //     if (result.includes(str)) return;
+    //     result.push(str);
+    //   });
+
+    //   return result.length;
+    // }
+
+    // WAY2
+    /**
+     * @param {string[]} words
+     * @return {number}
+     */
+    function uniqueMorseRepresentations(words) {
+        const index = "a".charCodeAt(0);
+        const letters = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+
+        // 1.将words使用map对每个word进行加工 words.map
+        // 2.将循环出来的每个word转换成array([...word]),并对里的字母进行加工[...word].map, 替换成letters里的code,再使用join('')将每个加工后的array连接成新的word
+        // 3. 使用new Set将加工后的words进行去重, 并使用size来返回去重后的长度
+        // console.log(
+        //     new Set (
+        //         words.map((word) => { 
+        //             return [...word].map((arg) => {
+        //                 return letters[arg.charCodeAt(0) - index]
+        //             }).join('')
+        //         })
+        //     ).size
+        // );
+        return new Set(
+            words.map((word) => 
+                [...word].map((arg) => 
+                    letters[arg.charCodeAt(0) - index]
+                ).join('')
+            )
+        ).size
+    }
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse-words-in-a-string-iii</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "Let's take LeetCode contest";
+console.log(reverseWords(s));
+/**
+ * @param {string} s
+ * @return {string}
+ */
+function reverseWords(s) {
+    let result = '';
+    s.split(" ").forEach((str,index) => {
+        result += str.split('').reverse().join('') + ' ';
+    })
+    return result.trim()
+};
+</script>
+</html>

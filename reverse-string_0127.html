@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse-string</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = ["\""];
+
+
+console.log("======result===========");
+console.log(reverseString(s));
+console.log("=======================");
+
+function reverseString(s) {
+    s.reverse();
+    return s
+}
+
+// Way2:
+// function reverseString(s) {
+//     const initLength = s.length;
+//     const length = s.length * 2 - 1;
+//     for(let i = 0; i < s.length - 1; i++) {
+//         s[length - i] = s[i];
+//     }
+//     s.splice(0, initLength)
+//     return s
+// }
+
+// Way3:
+// function reverseString(s) {
+//     // pop用于删除并返回数组最后一个元素
+//     let store = [];
+//     while(s.length > 0) {
+//         store.push(s.pop());
+//     }
+//     return store
+// };
+
+
+</script>
+</html>

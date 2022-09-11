@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace-all-digits-with-characters</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "a1c1e1";
+
+console.log(replaceDigits(s));
+/**
+ * @param {string} s
+ * @return {string}
+ */
+function replaceDigits(s) {
+    let arr = s.split("");
+    for (let i = 1; i < arr.length; i+=2) {
+        arr[i] = shift(String(arr[i-1]), Number(arr[i]));
+    }
+    return arr.join("");
+};
+
+function shift(c, x) {
+    let r = c.charCodeAt(0) + x;
+    return String.fromCharCode(r);
+}
+
+</script>
+</html>

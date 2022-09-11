@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compair-string</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const str1 = "ab";
+    const str2 = "ba";
+    const str3 = "bbaa";
+    const str4 = "abbb";
+    const str5 = "bbba";
+
+    console.log("======result===========");
+    console.log(checkStr(str1,str2));
+    console.log(checkStr(str3,str4));
+    console.log(checkStr(str4,str5));
+    console.log("=======================");
+
+    function checkStr(str1, str2) {
+        let arr1 = str1.split("").sort();
+        let arr2 = str2.split("").sort();
+
+        if(arr1.length !== arr2.length) return false
+
+        let result = true;
+
+        arr1.forEach((el, index) => {
+            if (el !== arr2[index]) result = false
+        });
+
+        return result
+    }
+</script>
+</html>

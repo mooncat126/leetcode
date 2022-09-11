@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split-a-string-in-balanced-strings</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "RLRRLLRLRL";
+
+console.log(balancedStringSplit(s));
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+function balancedStringSplit(s) {
+    let count  = 0;
+    let result = 0;
+    
+    for(let i = 0; i < s.length; i++) {
+        count = s[i] === 'R' ? ++count : --count;
+        if(count === 0)  ++result;
+    }
+    
+    return result
+};
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number-of-strings-that-appear-as-substrings-in-wor</title>
+</head>
+<body>
+    
+</body>
+<script>
+const pattern = ["a","abc","bc","d"];
+const word = "abc";
+/**
+ * @param {string[]} patterns
+ * @param {string} word
+ * @return {number}
+ */
+function numOfStrings(patterns, word) {
+    let count = 0;
+    patterns.forEach(pattern => {if (word.includes(pattern)) {count++}})
+    return count
+};
+</script>
+</html>

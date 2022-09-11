@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>palindrome-linked-list/</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * Definition for singly-linked list.
+     * function ListNode(val, next) {
+     *     this.val = (val===undefined ? 0 : val)
+     *     this.next = (next===undefined ? null : next)
+     * }
+     */
+    /**
+     * @param {ListNode} head
+     * @return {boolean}
+     */
+    var isPalindrome = function (head) {
+      if (!head.next) return true;
+      let nums = [];
+
+      while (head) {
+        nums.push(head.val);
+        head = head.next;
+      }
+
+      if (nums.length % 2 !== 0) {
+        nums.splice(nums.length / 2, 1);
+      }
+
+      const nums_cp = [...nums];
+
+      let nums1 = nums.splice(0, Math.ceil(nums.length / 2)).join("");
+      let nums2 = nums_cp
+        .splice(Math.ceil(nums_cp.length / 2), nums_cp.length)
+        .reverse()
+        .join("");
+
+      return nums1 == nums2;
+    };
+  </script>
+</html>

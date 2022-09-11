@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xor-operation-in-an-array</title>
+</head>
+<body>
+    
+</body>
+<script>
+const n = 0;
+const start = 5;
+
+console.log(xorOperation(n, start));
+
+/**
+ * @param {number} n
+ * @param {number} start
+ * @return {number}
+ */
+function xorOperation(n, start) {
+    let nums = [];
+    for (let i = 0; i < n; i++) {
+        nums[i] = start + 2 * i;
+    }
+    
+    let result = nums.reduce((pre, cur) => pre ^ cur);
+    return result
+};
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>majority-element</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number[]} nums
+     * @return {number}
+     */
+    var majorityElement = function (nums) {
+      let ht = {};
+      nums.forEach((num) => {
+        ht[num] = ht[num] + 1 || 1;
+      });
+
+      let result = nums.length / 2;
+
+      for (key in ht) {
+        if (ht[key] < nums.length / 2) continue;
+        if (ht[key] > result) result = key;
+      }
+
+      return result;
+    };
+  </script>
+</html>

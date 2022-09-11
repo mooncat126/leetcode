@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rings-and-rods</title>
+</head>
+<body>
+    
+</body>
+<script>
+const rings = "B0B6G0R6R0R6G9";
+
+console.log(countPoints(rings));
+
+/**
+ * @param {string} rings
+ * @return {number}
+ */
+function countPoints(rings) {
+    let ht = {}
+    let count = 0;
+    for(let i = 0; i < rings.length; i++) {
+        let index = rings[i+1];
+        ht[index] = ht[index] ? ht[index] + rings[i] : rings[i];
+        console.log(ht);
+        i++
+    }
+    for (let key in ht) {
+        if(ht[key].includes('B') && ht[key].includes('G') && ht[key].includes('R')) count++
+    }
+    return count
+};
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>counting-words-with-a-given-prefix</title>
+  </head>
+  <body></body>
+  <script>
+    const words = ["pay", "attention", "practice", "attend"];
+    const pref = "at";
+    console.log(prefixCount(words, pref));
+    /**
+     * @param {string[]} words
+     * @param {string} pref
+     * @return {number}
+     */
+    var prefixCount = function (words, pref) {
+      let count = 0;
+      words.forEach((word) => {
+        if (word.includes(pref) && word.indexOf(pref) === 0) count++;
+      });
+      return count;
+    };
+  </script>
+</html>

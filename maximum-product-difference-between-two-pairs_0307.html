@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maximum-product-difference-between-two-pairs</title>
+</head>
+<body>
+    
+</body>
+<script>
+const nums = [5,6,2,7,4];
+
+console.log(maxProductDifference(nums));
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+function maxProductDifference(nums) {
+    const sortNums = nums.sort((a,b) => a - b);
+    const maxIndex = sortNums.length - 1;
+    return sortNums[maxIndex]*sortNums[maxIndex-1] - sortNums[0]*sortNums[1]
+};
+</script>
+</html>

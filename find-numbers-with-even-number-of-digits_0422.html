@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>find-numbers-with-even-number-of-digits</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number[]} nums
+     * @return {number}
+     */
+    const findNumbers = function (nums) {
+      let count = 0;
+      nums.forEach((num) => {
+        if (String(num).length % 2 == 0) count++;
+      });
+      return count;
+    };
+  </script>
+</html>

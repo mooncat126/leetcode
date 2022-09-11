@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>roman-to-integer</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {string} s
+     * @return {number}
+     */
+    var romanToInt = function (s) {
+      let obj = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000,
+        IV: 4,
+        IX: 9,
+        XL: 40,
+        XC: 90,
+        CD: 400,
+        CM: 900,
+      };
+
+      let count = 0;
+      const arr = s.split("");
+
+      for (let i = 0; i < arr.length; i++) {
+        let type = arr[i];
+        let nextType = arr[i + 1];
+
+        const addBySpecialType = () => {
+          count += obj[type + nextType];
+          i++;
+        };
+
+        const addAsNormal = () => {
+          count += obj[type];
+        };
+
+        if (type == "I") {
+          nextType == "V" || nextType == "X"
+            ? addBySpecialType()
+            : addAsNormal();
+          continue;
+        }
+
+        if (type == "X") {
+          nextType == "L" || nextType == "C"
+            ? addBySpecialType()
+            : addAsNormal();
+          continue;
+        }
+
+        if (type == "C") {
+          nextType == "D" || nextType == "M"
+            ? addBySpecialType()
+            : addAsNormal();
+          continue;
+        }
+
+        addAsNormal();
+      }
+
+      return count;
+    };
+  </script>
+</html>

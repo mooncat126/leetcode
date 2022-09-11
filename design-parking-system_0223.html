@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>design-parking-system</title>
+</head>
+<body>
+    
+</body>
+<script>
+["ParkingSystem","addCar","addCar","addCar","addCar"]
+[[1,1,0],[1],[2],[3],[1]]
+
+/**
+ * @param {number} big
+ * @param {number} medium
+ * @param {number} small
+ */
+let ParkingSystem = function(big, medium, small) {
+    this.capacities = {
+        1: big,
+        2: medium,
+        3: small
+    }
+};
+
+/** 
+ * @param {number} carType
+ * @return {boolean}
+ */
+ParkingSystem.prototype.addCar = function(carType) {
+    if(this.capacities[carType] === 0) return false
+    this.capacities[carType]--;
+    return true;
+};
+
+/** 
+ * Your ParkingSystem object will be instantiated and called as such:
+ * var obj = new ParkingSystem(big, medium, small)
+ * var param_1 = obj.addCar(carType)
+ */
+</script>
+</html>

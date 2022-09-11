@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>how-many-numbers-are-smaller-than-the-current-number</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+const nums = [60,14,3,39,49,43,53,24,33,13,32,93,65,26,77,55,2,28,2,50,18,4,92,20,57,90,64,86,54,69,28,80,88,66,57,28,67,83,3,50,86];
+smallerNumbersThanCurrent(nums);
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+function smallerNumbersThanCurrent(nums) {
+    const arrNums = [...nums].sort((a, b) => a - b);
+    let result = [];
+    nums.forEach((num) => {
+        result.push(arrNums.indexOf(num));
+    })
+    return result
+};
+</script>
+</html>

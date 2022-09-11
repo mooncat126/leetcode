@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove-outermost-parentheses</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "(()())(())";
+/**
+ * @param {string} s
+ * @return {string}
+ */
+function removeOuterParentheses(s) {
+    let openCount = 0, result = "";
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] == '(' && openCount++ > 0) {
+            result += s[i];
+        } else if (s[i] == ')' && openCount-- > 1) {
+            result += s[i];
+        }
+    }
+    return result
+};
+</script>
+</html>

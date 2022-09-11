@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>destination-city</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {string[][]} paths
+     * @return {string}
+     */
+    var destCity = function (paths) {
+      let ht = {};
+      let result = "";
+      let arrayPaths = paths.flat();
+      for (let i = 0; i < arrayPaths.length; i++) {
+        arrayPaths[i] in ht
+          ? delete ht[arrayPaths[i]]
+          : (ht[arrayPaths[i]] = i);
+      }
+
+      for (let key in ht) {
+        if (ht[key] % 2 !== 0) result = key;
+      }
+      return result;
+    };
+
+    //way 2
+    const destCity = function (paths) {
+      let map = new Map();
+      for (let [s, d] of paths) {
+        map.set(s, d);
+        map.set(d, map.get(d) || null);
+      }
+
+      for (let [s, d] of map) {
+        if (d === null) return s;
+      }
+
+      return null;
+    };
+  </script>
+</html>

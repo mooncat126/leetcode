@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goal-parser-interpretation</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const str1 = "G()(al)";
+
+    console.log("======result===========");
+    console.log(interpret(str1));
+    console.log("=======================");
+
+/**
+ * @param {string} command
+ * @return {string}
+ */
+function interpret(command) {
+    let result = '';
+    for(let i = 0; i < command.length; i++) {
+        if(command[i] === 'G') {
+            result += 'G';
+        }
+        
+        if(command[i] === '(') {
+            if(command[i+1] === ')') {
+                result += 'o'
+            } else {
+                result += 'al'
+            }
+        }
+    }
+    return result
+};
+</script>
+</html>

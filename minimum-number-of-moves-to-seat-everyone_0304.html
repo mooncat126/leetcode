@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>minimum-number-of-moves-to-seat-everyones</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number[]} seats
+     * @param {number[]} students
+     * @return {number}
+     */
+    var minMovesToSeat = function (seats, students) {
+      seats.sort((a, b) => a - b);
+      students.sort((a, b) => a - b);
+
+      let res = 0;
+      for (let i = 0; i < seats.length; i++) {
+        res += Math.abs(seats[i] - students[i]);
+      }
+
+      return res;
+    };
+  </script>
+</html>

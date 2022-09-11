@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maximum-nesting-depth-of-the-parentheses</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const s = "(1+(2*3)+((8)/4))+1";
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+function maxDepth(s) {
+    let maxLength = 0;
+    let stack = [];
+    for(let i = 0; i<s.length;i++) {
+        if(s[i] === '(') stack.push('(');
+        if(s[i] === ')') stack.pop(')');
+        maxLength = stack.length > maxLength ? stack.length : maxLength
+    }
+    return maxLength
+};
+console.log(maxDepth(s));
+</script>
+</html>

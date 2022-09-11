@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sorting-the-sentence</title>
+</head>
+<body>
+    
+</body>
+<script>
+const s = "is2 sentence4 This1 a3";
+
+console.log(sortSentence(s));
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+function sortSentence(s) {
+    let arrS = s.split(" ");
+    let result = [];
+    
+    arrS.forEach((arg, index) => {
+        const word = arg.slice(0, --arg.length);
+        const wordIndex = Number(arg.substr(-1));
+        result[wordIndex] = wordIndex === arrS.length ? word : word + ' ';
+    })
+    
+    return result.join("");
+};
+</script>
+</html>

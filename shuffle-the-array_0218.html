@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shuffle-the-array</title>
+</head>
+<body>
+    
+</body>
+<script>
+const nums = [2,5,1,3,4,7]
+const n = 3
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+function shuffle(nums, n) {
+    //浅拷贝数组
+    const copyNums = [...nums];
+    const arr1 = nums.splice(0, n);
+    const arr2 = copyNums.splice(n, n);
+    
+    let results = []
+    for(let i = 0; i < n; i++) {
+        results.push(arr1[i]);
+        results.push(arr2[i]);
+    }
+    return results
+};
+</script>
+</html>

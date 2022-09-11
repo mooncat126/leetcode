@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>delete-node-in-a-linked-list</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * Definition for singly-linked list.
+     * function ListNode(val) {
+     *     this.val = val;
+     *     this.next = null;
+     * }
+     */
+    /**
+     * @param {ListNode} node
+     * @return {void} Do not return anything, modify node in-place instead.
+     */
+    var deleteNode = function (node) {
+      node.val = node.next.val;
+      node.next = node.next.next;
+    };
+  </script>
+</html>

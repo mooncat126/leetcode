@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum-of-all-subset-xor-totals</title>
+</head>
+<body>
+    
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+function subsetXORSum(nums) {
+    var sumXor = (nums, i, cur) => {
+        if(i == nums.length)   return cur;
+        return sumXor(nums, i+1, cur) + sumXor(nums, i+1, cur^nums[i]);
+    }
+    return sumXor(nums, 0, 0);
+};
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check-if-the-sentence-is-pangrams</title>
+</head>
+<body>
+    
+</body>
+<script>
+const sentence = "thequickbrownfoxjumpsoverthelazydog";
+
+checkIfPangram(sentence)
+/**
+ * @param {string} sentence
+ * @return {boolean}
+ */
+function checkIfPangram(sentence) {
+    const arr = sentence.split("").sort();
+    return [...new Set(arr)].length === 26
+};
+
+/* Way 2*/
+// function checkIfPangram(sentence) {
+//     return new Set(sentence).size === 26
+// };
+</script>
+</html>

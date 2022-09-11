@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>happy-number</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number} n
+     * @return {boolean}
+     */
+    var isHappy = function (n) {
+      let count = 0;
+
+      const loop = (num) => {
+        let rResult = 0;
+        num = (num + "").split("").map((s) => parseInt(s));
+
+        for (let i = 0; i < num.length; i++) {
+          rResult = rResult + Math.pow(num[i], 2);
+        }
+
+        if (rResult == 1) {
+          return rResult;
+        } else {
+          count++;
+          return count > 100 ? false : loop(rResult);
+        }
+      };
+
+      return n < 1 ? false : loop(n);
+    };
+  </script>
+</html>

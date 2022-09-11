@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>convert-binary-number-in-a-linked-list-to-integer</title>
+</head>
+<body>
+    
+</body>
+<script>
+const head = [0,1,0];
+
+console.log(getDecimalValue(head));
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {number}
+ */
+function getDecimalValue(head) {
+    let result = '';
+    while(head) {
+        result += head.val
+        head = head.next
+    }
+    return parseInt(result, 2)
+};
+</script>
+</html>

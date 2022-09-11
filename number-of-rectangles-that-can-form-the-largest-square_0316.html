@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number-of-rectangles-that-can-form-the-largest-square</title>
+</head>
+<body>
+    
+</body>
+<script>
+/**
+ * @param {number[][]} rectangles
+ * @return {number}
+ */
+function countGoodRectangles(rectangles) {
+    let array = rectangles.map(rectangle => rectangle.sort((a,b) => a - b)[0]).sort((a,b) => a - b);
+    
+    return array.filter(num =>num === array[array.length - 1]).length
+};
+</script>
+</html>

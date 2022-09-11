@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number-of-steps-to-reduce-a-number-to-zero</title>
+</head>
+<body>
+    
+</body>
+<script>
+const num = 14;
+
+console.log(numberOfSteps(num));
+
+/**
+ * @param {number} num
+ * @return {number}
+ */
+function numberOfSteps(num) {
+    let count = 0;
+    while(num > 0) {
+        num = num % 2 === 0 ? num/2 : --num
+        ++count
+    }
+    return count
+};
+</script>
+</html>

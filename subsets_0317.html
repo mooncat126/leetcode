@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subsets</title>
+</head>
+<body>
+    
+</body>
+<script>
+const nums = [1,2,3];
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+console.log(subsets(nums));
+function subsets(nums) {
+// 初始时，选择列表就是numArr = [1, 2, 3]
+// 初始时，path为[]
+
+    let res = [];
+    let path = [];
+    
+    // 从索引0开始
+    // 回溯法
+    backtrack(nums, 0, path, res);
+    
+    return res;
+};
+
+function backtrack(nums, startIndex, path, res){
+   // 每次一进来，首先把path添加到结果集
+    
+    // 注意js数组共用内存
+    let arr = [...path]
+    console.log("let arr = [...path]");
+    console.log(arr);
+    res.push(arr);
+    console.log("res");
+    console.log(res);
+
+    // 遍历剩余的可选的选项
+    for(let i = startIndex; i < nums.length; i++){
+        let num = nums[i];
+
+        // 做出选择
+        path.push(num);
+        console.log("path.push(num);");
+        console.log(path.push(num));
+
+        // 进入下一层
+        backtrack(nums, i + 1, path, res);
+
+        // 撤销刚才的选择
+        path.pop();
+        console.log(" path.pop();");
+        console.log( path.pop());
+    }
+}
+
+</script>
+</html>
