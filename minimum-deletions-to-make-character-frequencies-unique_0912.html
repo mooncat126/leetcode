@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>/minimum-deletions-to-make-character-frequencies-unique</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {string} s
+     * @return {number}
+     */
+    var minDeletions = function (s) {
+      // Step 1: count frequencies
+      let freq = new Array(26).fill(0);
+      for (let char of s) {
+        freq[char.charCodeAt(0) - "a".charCodeAt(0)]++;
+      }
+
+      freq = freq.filter((f) => f !== 0).sort((a, b) => b - a);
+
+      // Step 2: delete useless data after sorting
+      let deletions = 0;
+      let expectedFreq = freq[0] - 1;
+      for (let i = 1; i < freq.length; i++) {
+        if (freq[i] === 0) break;
+        if (freq[i] >= expectedFreq) {
+          deletions += freq[i] - expectedFreq;
+          expectedFreq = expectedFreq > 0 ? expectedFreq - 1 : 0;
+        } else {
+          expectedFreq = freq[i] - 1;
+        }
+      }
+
+      return deletions;
+    };
+  </script>
+</html>
