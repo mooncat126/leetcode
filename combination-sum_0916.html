@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>combination-sum</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number[]} candidates
+     * @param {number} target
+     * @return {number[][]}
+     */
+    var combinationSum = function (candidates, target) {
+      let result = [];
+
+      // The backtrack function that tries all possibilities
+      function backtrack(remaining, currentCombination, start) {
+        // If the sum of the current combination equals the target
+        if (remaining === 0) {
+          result.push([...currentCombination]);
+          return;
+        }
+        // If the sum exceeds the target
+        else if (remaining < 0) {
+          return;
+        }
+
+        // Loop through the candidates, starting from the current number
+        // (This ensures each number can be used multiple times)
+        for (let i = start; i < candidates.length; i++) {
+          // Add the current candidate to the combination
+          currentCombination.push(candidates[i]);
+          // Recursively call the function with the reduced sum and the updated combination
+          backtrack(remaining - candidates[i], currentCombination, i);
+          // Undo the last number added, which is backtracking
+          currentCombination.pop();
+        }
+      }
+
+      // Start the backtrack function
+      backtrack(target, [], 0);
+      return result;
+    };
+  </script>
+</html>
