@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add-two-numbers</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * @param {number} num
+     * @return {boolean}
+     * https://leetcode.com/problems/add-two-numbers/description/
+     */
+    var addTwoNumbers = function (l1, l2) {
+      let dummyHead = new ListNode(0); // 虚拟头节点，帮助简化链表操作
+      let current = dummyHead; // 当前节点指针，初始指向虚拟头节点
+      let carry = 0; // 进位
+
+      // 当 l1 或 l2 中还有节点时，继续相加
+      while (l1 !== null || l2 !== null) {
+        const x = l1 !== null ? l1.val : 0; // 获取 l1 当前节点的值，若为空则为 0
+        const y = l2 !== null ? l2.val : 0; // 获取 l2 当前节点的值，若为空则为 0
+        const sum = carry + x + y; // 当前位的和
+        carry = Math.floor(sum / 10); // 计算进位
+        current.next = new ListNode(sum % 10); // 创建新节点存储当前位的结果
+        current = current.next; // 移动到下一个节点
+
+        // 移动到链表的下一个节点
+        if (l1 !== null) l1 = l1.next;
+        if (l2 !== null) l2 = l2.next;
+      }
+
+      // 如果最后还有进位，创建一个新的节点
+      if (carry > 0) {
+        current.next = new ListNode(carry);
+      }
+
+      return dummyHead.next; // 返回结果链表的头节点
+    };
+  </script>
+</html>
