@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lengthOfLongestSubstring</title>
+  </head>
+  <body></body>
+  <script>
+    function lengthOfLongestSubstring(s) {
+      let charSet = new Set();
+      let maxLength = 0;
+      let left = 0;
+
+      for (let right = 0; right < s.length; right++) {
+        // 如果当前字符已在窗口中，移除窗口左侧的字符，直到移除重复字符
+        while (charSet.has(s[right])) {
+          charSet.delete(s[left]);
+          left++;
+        }
+
+        // 将当前字符加入到集合中
+        charSet.add(s[right]);
+
+        // 更新最大子串长度
+        maxLength = Math.max(maxLength, right - left + 1);
+      }
+
+      return maxLength;
+    }
+  </script>
+</html>
